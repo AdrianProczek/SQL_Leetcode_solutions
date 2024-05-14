@@ -1,0 +1,24 @@
+-- 577. Employee Bonus
+-- +-------------+---------+
+-- | Column Name | Type    |
+-- +-------------+---------+
+-- | empId       | int     |
+-- | name        | varchar |
+-- | supervisor  | int     |
+-- | salary      | int     |
+-- +-------------+---------+
+-- empId is the column with unique values for this table.
+-- Each row of this table indicates the name and the ID of an employee in addition to their salary and the id of their manager.
+-- +-------------+------+
+-- | Column Name | Type |
+-- +-------------+------+
+-- | empId       | int  |
+-- | bonus       | int  |
+-- +-------------+------+
+-- empId is the column of unique values for this table.
+-- empId is a foreign key (reference column) to empId from the Employee table.
+-- Each row of this table contains the id of an employee and their respective bonus.
+
+select Employee.name, Bonus.bonus from Employee
+left join Bonus on Employee.empId = Bonus.empId
+where Bonus.bonus < 1000 or Bonus is null
